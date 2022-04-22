@@ -31,8 +31,10 @@ public class Array2D {
                 for (int[] arr : array) {
                     for (int i = 0; i < arr.length; i++) {
                         //int number = random.nextInt(max - min) + min;
+                        //OR -99 + (int) (Math.random() * 99)
                         arr[i] = -100 + new Random().nextInt(200);
-                        System.out.printf("%s%d", i == 0 ? "" : ", ", arr[i]);
+
+                        System.out.printf("%s%4d", i == 0 ? "" : ", ", arr[i]);
                     }
                     System.out.println();
                 }
@@ -57,8 +59,7 @@ public class Array2D {
                 System.out.println();
 
                 //Standard deviation of all numbers in the array.
-                System.out.println("Standard Deviation of all numbers: ");
-                System.out.println(standardDeviation(array));
+                System.out.printf("Standard Deviation of all numbers: %.3f\n", standardDeviation(array));
 
                 //Find pairs of numbers in the array whose sum is a prime number and display those pairs and their sum.(assume that negative number is not a prime number)
                 System.out.println("pairs whose sum is a prime number (first two elements are the pair, the last element is the sum): ");
@@ -72,7 +73,8 @@ public class Array2D {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             System.out.println("Input Invalid! Must be an integer.");
         }
     }
@@ -94,6 +96,7 @@ public class Array2D {
             for (int j = 0; j < array[i].length; j++) {
                 rowSum += array[i][j];
             }
+            System.out.printf("the sum of row %d is: %d \n", i+1, rowSum);
             result[i] = rowSum;
         }
         return result;
@@ -108,15 +111,16 @@ public class Array2D {
                 columnSum += array[j][i];
             }
             result[i] = columnSum;
+            System.out.printf("the sum of column %d is: %d \n", i+1, columnSum);
         }
         return result;
     }
 
     public static double standardDeviation(int[][] array) {
         double standardDeviation = 0.0;
-        int n = array.length;
+        int n = array.length * array[0].length;
         double mean = sumAll(array) / n;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 standardDeviation += Math.pow(array[i][j] - mean, 2);
             }
