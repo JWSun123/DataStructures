@@ -1,4 +1,5 @@
-import javax.xml.catalog.Catalog;
+package Arrays;
+
 import java.util.*;
 
 public class ArrayListStart {

@@ -1,3 +1,5 @@
+package Arrays;
+
 public class CustomArrayOfInt {
     public int[] data = new int[1]; //only grows by doubling size, never shrinks.
     private int size = 0;
@@ -30,9 +32,9 @@ public class CustomArrayOfInt {
         size--;
 
         //shrink. when to shrink.
-//        if ((double) size / data.length * 100 < 25) {
-//            shrinkStorage();
-//        }
+        if ((double) size / data.length * 100 < 25) {
+            shrinkStorage();
+        }
     }
 
     public boolean deleteByValue(int value) {
@@ -118,7 +120,7 @@ public class CustomArrayOfInt {
     public void shrinkStorage() {
         // a helper variable.
         int[] newData = new int[data.length / 2];
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < size; i++) {
             // transfer data from data to newdata.
             newData[i] = data[i];
         }

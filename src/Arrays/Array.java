@@ -1,3 +1,5 @@
+package Arrays;
+
 import java.util.Scanner;
 
 public class Array {
@@ -72,7 +74,7 @@ class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Arrays.Person{" +
                 "name='" + name + '\'' +
                 ", tel='" + tel + '\'' +
                 '}';
