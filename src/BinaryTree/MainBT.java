@@ -1,8 +1,6 @@
 package BinaryTree;
 
-import Arrays.Array;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class MainBT {
     public static void main(String[] args) {
@@ -26,8 +24,13 @@ public class MainBT {
 //          /   \       \
 //        d      e       f
 
-        for (Node node:treeA.depthFirstValues()){
-            System.out.println(node.val);
-        }
+//        for (Node node:treeA.depthFirstValues()){
+//            System.out.println(node.val);
+//        }
+
+//        treeA.depthFirstValuesRecursive(a);
+
+        ArrayList array = treeA.depthFirstValuesRecursive(a, new ArrayList<>());
+        System.out.println(array.toString());
     }
 }
