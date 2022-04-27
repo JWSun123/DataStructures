@@ -30,7 +30,10 @@ public class MainBT {
 
 //        treeA.depthFirstValuesRecursive(a);
 
-        ArrayList array = treeA.depthFirstValuesRecursive(a, new ArrayList<>());
-        System.out.println(array.toString());
+        ArrayList array1 = treeA.depthFirstValuesRecursive(a, new ArrayList<>());
+        System.out.println(array1.toString());
+
+        ArrayList array2 = treeA.breadthFirstValues();
+        System.out.println(array2.toString());
     }
 }

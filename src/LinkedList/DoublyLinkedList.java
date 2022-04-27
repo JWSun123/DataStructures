@@ -121,14 +121,15 @@ public class DoublyLinkedList<T> {
             start.left = null;
             size--;
         }
-        else if (index == size - 1) {
-            current.left.right = null;
-            end = current.left;
-            current.left = null;
-            size--;
-        }else {
+        else {
             for(int i = 0; i < index; i++) {
                 current = current.right;
+            }
+            if (index == size - 1) {
+                current.left.right = null;
+                end = current.left;
+                current.left = null;
+                size--;
             }
             current.left.right = current.right;
             current.right.left = current.left;

@@ -1,5 +1,7 @@
 package Recursion;
 
+import java.util.Objects;
+
 public class RecursionExample {
 
     public static void main(String[] args) {
@@ -17,6 +19,8 @@ public class RecursionExample {
         //test find the maximum value in the input array a[] of size n.
         int a[] = {1, 4, 45, 6, -50, 10, 2};
         System.out.println(maxValue(a, a.length));
+
+
     }
     static void printFun(int test){
         if (test < 1){
@@ -55,4 +59,33 @@ public class RecursionExample {
         if (n == 1) return a[0];
         return Math.max(a[n-1], maxValue(a, n-1));
      }
+
+     // Given a string, compute recursively (no loops) a new string where all appearances of "pi" have been replaced by "3.14".
+    public String changePi(String str) {
+        if (!str.contains("pi")){
+            return str;
+        }
+        return changePi(str.replace("pi", "3.14"));
+    }
+
+    // Given a string, compute recursively a new string where all the 'x' chars have been removed.
+    public String noX(String str) {
+        if (!str.contains("x")){
+            return str;
+        }
+        return noX(str.replace("x", ""));
+    }
+
+    public int array11(int[] nums, int index) {
+
+        if (index >= nums.length){
+            return 0;
+        }
+        if(nums[index] == 11){
+            return array11(nums, index + 1) + 1;
+        }
+        return array11(nums, index + 1);
+
+    }
+
 }

@@ -1,3 +1,5 @@
+package LinkedList;
+
 import LinkedList.LinkedListArrayOfStrings;
 
 public class Main {

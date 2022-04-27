@@ -36,7 +36,7 @@ public class BinaryTree<T> {
 
     public ArrayList<T> depthFirstValuesRecursive(Node node, ArrayList<T> result) {
         if (result == null) result = new ArrayList<>();
-        if (root == null){
+        if (root == null) {
             return null;
         }
         if (node != null) {
@@ -49,8 +49,37 @@ public class BinaryTree<T> {
         return result;
     }
 
-//    public ArrayList<T> breadthFirstValues(){ //use QUEUE data structure
-//        ArrayList<T> result = new ArrayList<>();
-//        LinkedList<T>
+    public ArrayList<T> breadthFirstValues() { //use QUEUE data structure
+        ArrayList<T> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+
+        Queue<Node> nodes = new LinkedList<>();
+        nodes.add(root);
+
+        while (!nodes.isEmpty()){
+            Node node = nodes.remove();
+            result.add((T) node.val);
+
+            if (node.left != null){
+                nodes.add(node.left);
+            }
+            if (node.right != null){
+                nodes.add(node.right);
+            }
+        }
+        return result;
+    }
+
+//    public ArrayList<T> breadthFirstValuesRecursive(Node node, ArrayList<T> result) {
+//        if (result == null) result = new ArrayList<>();
+//        if (root == null) return null;
+//        if (node != null) {
+//            breadthFirstValuesRecursive(node.left, result);
+//            breadthFirstValuesRecursive(node.right, result);
+//            result.add((T) node.val);
+//        }
+//        return result;
 //    }
 }
